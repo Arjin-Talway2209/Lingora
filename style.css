@@ -1,0 +1,671 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --green: #58cc7a;
+    --green-dark: #35a95b;
+    --blue: #4b9ee8;
+    --yellow: #ffc83d;
+    --red: #ff6b6b;
+
+    --background: #f7faf8;
+    --card: #ffffff;
+    --text: #263238;
+    --muted: #718096;
+    --border: #e5e9e7;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    transition: 0.3s;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    height: 72px;
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 7%;
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.logo-icon {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--green);
+    color: white;
+
+    border-radius: 12px;
+
+    font-weight: 900;
+}
+
+.navbar nav {
+    display: flex;
+    gap: 30px;
+}
+
+.navbar nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-weight: 600;
+
+    transition: 0.2s;
+}
+
+.navbar nav a:hover {
+    color: var(--green-dark);
+}
+
+.icon-button {
+    border: none;
+    background: transparent;
+
+    font-size: 22px;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 90px 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 50px;
+}
+
+.hero-text {
+    max-width: 650px;
+}
+
+.eyebrow {
+    color: var(--green-dark);
+
+    font-size: 13px;
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 14px;
+}
+
+.hero h1 {
+    font-size: clamp(48px, 7vw, 76px);
+
+    line-height: 1.05;
+
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    color: var(--green);
+}
+
+.hero-text > p:not(.eyebrow) {
+    color: var(--muted);
+
+    font-size: 19px;
+
+    line-height: 1.7;
+
+    max-width: 570px;
+
+    margin-bottom: 30px;
+}
+
+.start-button {
+    background: var(--green);
+
+    color: white;
+
+    border: none;
+
+    padding: 17px 30px;
+
+    border-radius: 14px;
+
+    font-size: 17px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    box-shadow: 0 5px 0 var(--green-dark);
+
+    transition: 0.15s;
+}
+
+.start-button:hover {
+    transform: translateY(-2px);
+}
+
+.start-button:active {
+    transform: translateY(4px);
+    box-shadow: 0 1px 0 var(--green-dark);
+}
+
+.hero-character {
+    width: 240px;
+    height: 240px;
+
+    background: #e5f8eb;
+
+    border-radius: 35% 65% 60% 40%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 100px;
+
+    animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+
+/* =========================
+   STATS
+========================= */
+
+.stats {
+    max-width: 1050px;
+
+    margin: 0 auto 40px;
+
+    padding: 0 7%;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 18px;
+}
+
+.stat-card {
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+    padding: 20px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+}
+
+.stat-icon {
+    font-size: 30px;
+}
+
+.stat-card strong {
+    display: block;
+
+    font-size: 24px;
+}
+
+.stat-card small {
+    color: var(--muted);
+}
+
+
+/* =========================
+   DAILY GOAL
+========================= */
+
+.daily-goal {
+    max-width: 1050px;
+
+    margin: 0 auto 70px;
+
+    padding: 25px;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+.daily-goal h2 {
+    margin-bottom: 6px;
+}
+
+.daily-goal p {
+    color: var(--muted);
+}
+
+.progress-container {
+    width: 320px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+}
+
+.progress-bar {
+    height: 12px;
+
+    flex: 1;
+
+    background: #e7ece9;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+#progressFill {
+    width: 0%;
+
+    height: 100%;
+
+    background: var(--green);
+
+    border-radius: 20px;
+
+    transition: 0.5s;
+}
+
+#progressText {
+    font-weight: 800;
+}
+
+
+/* =========================
+   LEARNING PATH
+========================= */
+
+.learning {
+    max-width: 850px;
+
+    margin: auto;
+
+    padding: 0 7% 80px;
+}
+
+.section-title {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 40px;
+}
+
+.section-title h2 {
+    font-size: 35px;
+}
+
+.level {
+    background: var(--green);
+
+    color: white;
+
+    padding: 9px 18px;
+
+    border-radius: 20px;
+
+    font-weight: 800;
+}
+
+.path {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+}
+
+.lesson {
+    width: min(100%, 650px);
+
+    padding: 18px 22px;
+
+    border-radius: 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    border: 2px solid var(--border);
+
+    background: var(--card);
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.lesson:hover:not(.locked) {
+    transform: scale(1.02);
+}
+
+.lesson-circle {
+    min-width: 62px;
+    height: 62px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 22px;
+    font-weight: 900;
+}
+
+.completed .lesson-circle {
+    background: var(--green);
+
+    color: white;
+}
+
+.current {
+    border-color: var(--green);
+}
+
+.current .lesson-circle {
+    background: var(--green);
+
+    color: white;
+}
+
+.locked {
+    opacity: 0.55;
+
+    cursor: not-allowed;
+}
+
+.locked .lesson-circle {
+    background: #e9edeb;
+}
+
+.lesson-info h3 {
+    margin-bottom: 6px;
+
+    font-size: 20px;
+}
+
+.lesson-info p {
+    color: var(--muted);
+}
+
+.path-line {
+    width: 5px;
+
+    height: 35px;
+
+    background: #dfe6e2;
+}
+
+
+/* =========================
+   PRACTICE
+========================= */
+
+.practice {
+    max-width: 1050px;
+
+    margin: auto;
+
+    padding: 0 7% 90px;
+}
+
+.practice > h2 {
+    font-size: 35px;
+
+    margin-bottom: 25px;
+}
+
+.practice-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.practice-card {
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+
+    padding: 25px;
+}
+
+.practice-card > span {
+    font-size: 40px;
+}
+
+.practice-card h3 {
+    margin: 15px 0 8px;
+}
+
+.practice-card p {
+    color: var(--muted);
+
+    line-height: 1.5;
+
+    margin-bottom: 20px;
+}
+
+.practice-card button {
+    width: 100%;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #e8f8ed;
+
+    color: var(--green-dark);
+
+    font-weight: 800;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: var(--card);
+
+    border-top: 1px solid var(--border);
+
+    padding: 35px 7%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+footer p {
+    color: var(--muted);
+}
+
+
+/* =========================
+   DARK MODE
+========================= */
+
+body.dark {
+    --background: #151a18;
+    --card: #202723;
+    --text: #f1f5f3;
+    --muted: #a8b3ae;
+    --border: #303a35;
+}
+
+body.dark .hero-character {
+    background: #263d30;
+}
+
+body.dark .progress-bar {
+    background: #343d39;
+}
+
+body.dark .locked .lesson-circle {
+    background: #303936;
+}
+
+body.dark .practice-card button {
+    background: #263d30;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 750px) {
+
+    .navbar {
+        padding: 0 20px;
+    }
+
+    .navbar nav {
+        display: none;
+    }
+
+    .hero {
+        padding: 60px 25px;
+
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+    .hero-text > p:not(.eyebrow) {
+        font-size: 16px;
+    }
+
+    .hero-character {
+        width: 170px;
+        height: 170px;
+
+        font-size: 70px;
+    }
+
+    .stats {
+        padding: 0 20px;
+
+        grid-template-columns: 1fr;
+    }
+
+    .daily-goal {
+        margin: 0 20px 60px;
+
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .progress-container {
+        width: 100%;
+    }
+
+    .learning {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .lesson {
+        padding: 15px;
+    }
+
+    .lesson-circle {
+        min-width: 52px;
+        height: 52px;
+    }
+
+    .practice {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .practice-grid {
+        grid-template-columns: 1fr;
+    }
+
+    footer {
+        flex-direction: column;
+
+        gap: 15px;
+
+        text-align: center;
+    }
+}
