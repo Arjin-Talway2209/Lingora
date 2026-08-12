@@ -1,125 +1,39 @@
-let xp = 0;
-let streak = 0;
-let hearts = 5;
-let progress = 0;
-
-
-/* =========================
-   START LEARNING
-========================= */
-
-function startLearning() {
+function hideStartScreen() {
 
     document
-        .getElementById("learn")
-        .scrollIntoView({
-            behavior: "smooth"
-        });
+        .getElementById("startScreen")
+        .classList.remove("active");
 
 }
 
 
-/* =========================
-   OPEN LESSON
-========================= */
+function chooseLevel(level) {
 
-function openLesson(number) {
+    if (level === "beginner") {
 
-    if (number === 1) {
-
-        addXP(20);
-
-        progress = 25;
-
-        updateProgress();
-
-        alert("🎉 Great job! You completed Greetings!");
+        alert(
+            "🌱 Welcome to Lingora!\n\n" +
+            "You'll start from German A1, Lesson 1."
+        );
 
     }
 
-    if (number === 2) {
+    if (level === "little") {
 
-        alert("📚 Lesson 2 is coming next!");
-
-    }
-
-}
-
-
-/* =========================
-   PRACTICE
-========================= */
-
-function practice(type) {
-
-    if (type === "vocabulary") {
-
-        alert("🧠 Vocabulary practice is coming soon!");
+        alert(
+            "📖 Great!\n\n" +
+            "We'll give you a short beginner check first."
+        );
 
     }
 
-    if (type === "listening") {
+    if (level === "test") {
 
-        alert("🎧 Listening practice is coming soon!");
-
-    }
-
-    if (type === "grammar") {
-
-        alert("✍️ Grammar practice is coming soon!");
+        alert(
+            "🎯 Placement Test\n\n" +
+            "The Lingora placement test is coming next!"
+        );
 
     }
 
 }
-
-
-/* =========================
-   XP
-========================= */
-
-function addXP(amount) {
-
-    xp += amount;
-
-    document.getElementById("xp").textContent = xp;
-
-}
-
-
-/* =========================
-   PROGRESS
-========================= */
-
-function updateProgress() {
-
-    document.getElementById("progressFill").style.width =
-        progress + "%";
-
-    document.getElementById("progressText").textContent =
-        progress + "%";
-
-}
-
-
-/* =========================
-   DARK MODE
-========================= */
-
-const darkButton =
-    document.getElementById("darkMode");
-
-darkButton.addEventListener("click", function () {
-
-    document.body.classList.toggle("dark");
-
-    if (document.body.classList.contains("dark")) {
-
-        darkButton.textContent = "☀️";
-
-    } else {
-
-        darkButton.textContent = "🌙";
-
-    }
-
-});
