@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lingora – Learn German</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+        <span class="logo-icon">L</span>
+        <span>Lingora</span>
+    </div>
+
+    <nav>
+        <a href="#learn">Learn</a>
+        <a href="#practice">Practice</a>
+        <a href="#progress">Progress</a>
+    </nav>
+
+    <button id="darkMode" class="icon-button">🌙</button>
+
+</header>
+
+
+<main>
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-text">
+
+            <p class="eyebrow">🇩🇪 DEUTSCH LERNEN</p>
+
+            <h1>
+                Learn German.<br>
+                <span>Have fun.</span>
+            </h1>
+
+            <p>
+                Build your German skills one lesson at a time.
+                Learn vocabulary, grammar, listening and more.
+            </p>
+
+            <button class="start-button" onclick="startLearning()">
+                Start Learning →
+            </button>
+
+        </div>
+
+        <div class="hero-character">
+            🌱
+        </div>
+
+    </section>
+
+
+    <!-- STATS -->
+
+    <section class="stats" id="progress">
+
+        <div class="stat-card">
+            <div class="stat-icon">🔥</div>
+            <div>
+                <strong id="streak">0</strong>
+                <small>Day Streak</small>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">⭐</div>
+            <div>
+                <strong id="xp">0</strong>
+                <small>XP</small>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">❤️</div>
+            <div>
+                <strong id="hearts">5</strong>
+                <small>Hearts</small>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- DAILY GOAL -->
+
+    <section class="daily-goal">
+
+        <div>
+            <h2>Today's Goal 🎯</h2>
+            <p>Complete one lesson today.</p>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div id="progressFill"></div>
+            </div>
+
+            <span id="progressText">0%</span>
+        </div>
+
+    </section>
+
+
+    <!-- LEARNING PATH -->
+
+    <section class="learning" id="learn">
+
+        <div class="section-title">
+            <div>
+                <p class="eyebrow">YOUR JOURNEY</p>
+                <h2>Learning Path</h2>
+            </div>
+
+            <span class="level">A1</span>
+        </div>
+
+
+        <div class="path">
+
+            <div class="lesson completed" onclick="openLesson(1)">
+                <div class="lesson-circle">✓</div>
+                <div class="lesson-info">
+                    <h3>Greetings</h3>
+                    <p>Hallo! Wie geht es dir?</p>
+                </div>
+            </div>
+
+
+            <div class="path-line"></div>
+
+
+            <div class="lesson current" onclick="openLesson(2)">
+                <div class="lesson-circle">2</div>
+                <div class="lesson-info">
+                    <h3>Introducing Yourself</h3>
+                    <p>Ich heiße...</p>
+                </div>
+            </div>
+
+
+            <div class="path-line"></div>
+
+
+            <div class="lesson locked">
+                <div class="lesson-circle">🔒</div>
+                <div class="lesson-info">
+                    <h3>Numbers</h3>
+                    <p>Learn 0–20</p>
+                </div>
+            </div>
+
+
+            <div class="path-line"></div>
+
+
+            <div class="lesson locked">
+                <div class="lesson-circle">🔒</div>
+                <div class="lesson-info">
+                    <h3>Family</h3>
+                    <p>Meine Familie</p>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PRACTICE -->
+
+    <section class="practice" id="practice">
+
+        <p class="eyebrow">PRACTICE</p>
+
+        <h2>Keep practicing</h2>
+
+        <div class="practice-grid">
+
+            <div class="practice-card">
+                <span>🧠</span>
+                <h3>Vocabulary</h3>
+                <p>Review words you've learned.</p>
+                <button onclick="practice('vocabulary')">
+                    Practice
+                </button>
+            </div>
+
+            <div class="practice-card">
+                <span>🎧</span>
+                <h3>Listening</h3>
+                <p>Train your German listening skills.</p>
+                <button onclick="practice('listening')">
+                    Practice
+                </button>
+            </div>
+
+            <div class="practice-card">
+                <span>✍️</span>
+                <h3>Grammar</h3>
+                <p>Strengthen your grammar.</p>
+                <button onclick="practice('grammar')">
+                    Practice
+                </button>
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <div class="logo">
+        <span class="logo-icon">L</span>
+        Lingora
+    </div>
+
+    <p>Learn German. Every day.</p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
