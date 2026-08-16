@@ -1,320 +1,832 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Lingora – Learn German</title>
+    <title>Lingora — Learn German</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
+
 <body>
 
-<header class="navbar">
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
 
-    <div class="logo">
-        <span class="logo-icon">L</span>
-        <span>Lingora</span>
-    </div>
+    <header class="navbar">
 
-    <nav>
-        <a href="#learn">Learn</a>
-        <a href="#practice">Practice</a>
-        <a href="#progress">Progress</a>
-    </nav>
-
-    <button id="darkMode" class="icon-button">🌙</button>
-
-</header>
+        <a href="#" class="logo">
+            <span class="logo-icon">L</span>
+            <span>Lingora</span>
+        </a>
 
 
-<main>
+        <nav class="navigation">
 
-    <!-- HERO -->
+            <a href="#home">Home</a>
 
-    <section class="hero">
+            <a href="#learn">Learn</a>
 
-        <div class="hero-text">
+            <a href="#practice">Practice</a>
 
-            <p class="eyebrow">🇩🇪 DEUTSCH LERNEN</p>
+        </nav>
 
-            <h1>
-                Learn German.<br>
-                <span>Have fun.</span>
-            </h1>
 
-            <p>
-                Build your German skills one lesson at a time.
-                Learn vocabulary, grammar, listening and more.
+        <div class="nav-actions">
+
+            <button
+                class="theme-button"
+                id="darkMode"
+                aria-label="Toggle dark mode">
+                🌙
+            </button>
+
+            <button
+                class="login-button"
+                onclick="openLogin()">
+                Log in
+            </button>
+
+            <button
+                class="signup-button"
+                onclick="openSignup()">
+                Sign up
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <main>
+
+
+        <!-- =========================
+             HOME
+        ========================== -->
+
+        <section class="hero" id="home">
+
+
+            <div class="hero-content">
+
+                <div class="eyebrow">
+                    🇩🇪 DEUTSCH LERNEN
+                </div>
+
+
+                <h1>
+                    Learn German.<br>
+                    <span>Beautifully.</span>
+                </h1>
+
+
+                <p class="hero-description">
+
+                    Learn German step by step with
+                    vocabulary, grammar, listening,
+                    speaking and interactive lessons.
+
+                </p>
+
+
+                <button
+                    class="primary-button"
+                    onclick="openStartScreen()">
+
+                    Start Learning
+                    <span>→</span>
+
+                </button>
+
+            </div>
+
+
+
+            <div class="hero-art">
+
+                <div class="art-circle">
+
+                    <div class="art-card">
+                        <span>Hallo!</span>
+                        <small>🇩🇪</small>
+                    </div>
+
+                    <div class="art-leaf leaf-one">🌿</div>
+
+                    <div class="art-leaf leaf-two">🌱</div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             USER STATS
+        ========================== -->
+
+        <section class="stats-section">
+
+            <div class="stat-card">
+
+                <div class="stat-icon green">
+                    🔥
+                </div>
+
+                <div>
+                    <strong id="streak">0</strong>
+                    <span>Day Streak</span>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon gold">
+                    ⭐
+                </div>
+
+                <div>
+                    <strong id="xp">0</strong>
+                    <span>XP</span>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon red">
+                    ❤️
+                </div>
+
+                <div>
+                    <strong id="hearts">5</strong>
+                    <span>Hearts</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             DAILY GOAL
+        ========================== -->
+
+        <section class="daily-section">
+
+            <div>
+
+                <p class="section-label">
+                    TODAY
+                </p>
+
+                <h2>
+                    Your Daily Goal
+                </h2>
+
+                <p>
+                    Complete a lesson to keep your
+                    learning journey moving.
+                </p>
+
+            </div>
+
+
+            <div class="goal-progress">
+
+                <div class="progress-track">
+
+                    <div
+                        id="progressFill"
+                        class="progress-fill">
+                    </div>
+
+                </div>
+
+                <strong id="progressText">
+                    0%
+                </strong>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             LEARNING PATH
+        ========================== -->
+
+        <section
+            class="learning-section"
+            id="learn">
+
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="section-label">
+                        YOUR JOURNEY
+                    </p>
+
+                    <h2>
+                        German A1
+                    </h2>
+
+                </div>
+
+
+                <span class="level-badge">
+                    A1
+                </span>
+
+            </div>
+
+
+
+            <div class="learning-path">
+
+
+                <!-- LESSON 1 -->
+
+                <button
+                    class="lesson completed"
+                    onclick="openLesson(1)">
+
+                    <span class="lesson-number">
+                        ✓
+                    </span>
+
+                    <span class="lesson-content">
+
+                        <strong>
+                            Greetings
+                        </strong>
+
+                        <small>
+                            Hallo! Wie geht es dir?
+                        </small>
+
+                    </span>
+
+                    <span class="lesson-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+                <div class="path-line"></div>
+
+
+                <!-- LESSON 2 -->
+
+                <button
+                    class="lesson current"
+                    onclick="openLesson(2)">
+
+                    <span class="lesson-number">
+                        2
+                    </span>
+
+                    <span class="lesson-content">
+
+                        <strong>
+                            Introducing Yourself
+                        </strong>
+
+                        <small>
+                            Ich heiße...
+                        </small>
+
+                    </span>
+
+                    <span class="lesson-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+                <div class="path-line"></div>
+
+
+                <!-- LESSON 3 -->
+
+                <button
+                    class="lesson locked"
+                    onclick="lockedLesson()">
+
+                    <span class="lesson-number">
+                        🔒
+                    </span>
+
+                    <span class="lesson-content">
+
+                        <strong>
+                            Numbers
+                        </strong>
+
+                        <small>
+                            Zahlen 0–20
+                        </small>
+
+                    </span>
+
+                </button>
+
+
+                <div class="path-line"></div>
+
+
+                <!-- LESSON 4 -->
+
+                <button
+                    class="lesson locked"
+                    onclick="lockedLesson()">
+
+                    <span class="lesson-number">
+                        🔒
+                    </span>
+
+                    <span class="lesson-content">
+
+                        <strong>
+                            Family
+                        </strong>
+
+                        <small>
+                            Meine Familie
+                        </small>
+
+                    </span>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             PRACTICE
+        ========================== -->
+
+        <section
+            class="practice-section"
+            id="practice">
+
+            <p class="section-label">
+                PRACTICE
             </p>
 
-          <button class="start-button" onclick="showStartScreen()">
-    Start Learning →
-</button>
-
-        </div>
-
-        <div class="hero-character">
-            🌱
-        </div>
-
-    </section>
+            <h2>
+                Strengthen your German
+            </h2>
 
 
-    <!-- STATS -->
-
-    <section class="stats" id="progress">
-
-        <div class="stat-card">
-            <div class="stat-icon">🔥</div>
-            <div>
-                <strong id="streak">0</strong>
-                <small>Day Streak</small>
-            </div>
-        </div>
-
-        <div class="stat-card">
-            <div class="stat-icon">⭐</div>
-            <div>
-                <strong id="xp">0</strong>
-                <small>XP</small>
-            </div>
-        </div>
-
-        <div class="stat-card">
-            <div class="stat-icon">❤️</div>
-            <div>
-                <strong id="hearts">5</strong>
-                <small>Hearts</small>
-            </div>
-        </div>
-
-    </section>
+            <div class="practice-grid">
 
 
-    <!-- DAILY GOAL -->
+                <article class="practice-card">
 
-    <section class="daily-goal">
+                    <div class="practice-icon">
+                        🧠
+                    </div>
 
-        <div>
-            <h2>Today's Goal 🎯</h2>
-            <p>Complete one lesson today.</p>
-        </div>
-
-        <div class="progress-container">
-            <div class="progress-bar">
-                <div id="progressFill"></div>
-            </div>
-
-            <span id="progressText">0%</span>
-        </div>
-
-    </section>
-
-
-    <!-- LEARNING PATH -->
-
-    <section class="learning" id="learn">
-
-        <div class="section-title">
-            <div>
-                <p class="eyebrow">YOUR JOURNEY</p>
-                <h2>Learning Path</h2>
-            </div>
-
-            <span class="level">A1</span>
-        </div>
-
-
-        <div class="path">
-
-            <div class="lesson completed" onclick="openLesson(1)">
-                <div class="lesson-circle">✓</div>
-                <div class="lesson-info">
-                    <h3>Greetings</h3>
-                    <p>Hallo! Wie geht es dir?</p>
-                </div>
-            </div>
-
-
-            <div class="path-line"></div>
-
-
-            <div class="lesson current" onclick="openLesson(2)">
-                <div class="lesson-circle">2</div>
-                <div class="lesson-info">
-                    <h3>Introducing Yourself</h3>
-                    <p>Ich heiße...</p>
-                </div>
-            </div>
-
-
-            <div class="path-line"></div>
-
-
-            <div class="lesson locked">
-                <div class="lesson-circle">🔒</div>
-                <div class="lesson-info">
-                    <h3>Numbers</h3>
-                    <p>Learn 0–20</p>
-                </div>
-            </div>
-
-
-            <div class="path-line"></div>
-
-
-            <div class="lesson locked">
-                <div class="lesson-circle">🔒</div>
-                <div class="lesson-info">
-                    <h3>Family</h3>
-                    <p>Meine Familie</p>
-                </div>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- PRACTICE -->
-
-    <section class="practice" id="practice">
-
-        <p class="eyebrow">PRACTICE</p>
-
-        <h2>Keep practicing</h2>
-
-        <div class="practice-grid">
-
-            <div class="practice-card">
-                <span>🧠</span>
-                <h3>Vocabulary</h3>
-                <p>Review words you've learned.</p>
-                <button onclick="practice('vocabulary')">
-                    Practice
-                </button>
-            </div>
-
-            <div class="practice-card">
-                <span>🎧</span>
-                <h3>Listening</h3>
-                <p>Train your German listening skills.</p>
-                <button onclick="practice('listening')">
-                    Practice
-                </button>
-            </div>
-
-            <div class="practice-card">
-                <span>✍️</span>
-                <h3>Grammar</h3>
-                <p>Strengthen your grammar.</p>
-                <button onclick="practice('grammar')">
-                    Practice
-                </button>
-            </div>
-
-        </div>
-
-    </section>
-
-<!-- STARTING LEVEL SCREEN -->
-
-<section id="startScreen" class="start-screen">
-
-    <div class="start-card">
-
-        <div class="start-decoration">🇩🇪</div>
-
-        <p class="eyebrow">WELCOME TO LINGORA</p>
-
-        <h2>How much German do you know?</h2>
-
-        <p class="start-description">
-            Choose the option that fits you best.
-            You can change your path later.
-        </p>
-
-
-        <div class="level-options">
-
-            <button class="level-option" onclick="chooseLevel('beginner')">
-
-                <div class="option-icon">🌱</div>
-
-                <div class="option-text">
-                    <h3>I'm a complete beginner</h3>
+                    <h3>
+                        Vocabulary
+                    </h3>
 
                     <p>
-                        I've never learned German before.
+                        Review the German words
+                        you've learned.
                     </p>
-                </div>
 
-                <span class="option-arrow">→</span>
+                    <button
+                        onclick="practice('Vocabulary')">
+
+                        Practice →
+
+                    </button>
+
+                </article>
+
+
+
+                <article class="practice-card">
+
+                    <div class="practice-icon">
+                        🎧
+                    </div>
+
+                    <h3>
+                        Listening
+                    </h3>
+
+                    <p>
+                        Train your ears with
+                        German audio.
+                    </p>
+
+                    <button
+                        onclick="practice('Listening')">
+
+                        Practice →
+
+                    </button>
+
+                </article>
+
+
+
+                <article class="practice-card">
+
+                    <div class="practice-icon">
+                        ✍️
+                    </div>
+
+                    <h3>
+                        Grammar
+                    </h3>
+
+                    <p>
+                        Build your German
+                        grammar skills.
+                    </p>
+
+                    <button
+                        onclick="practice('Grammar')">
+
+                        Practice →
+
+                    </button>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================
+         START SCREEN
+    ========================== -->
+
+    <div
+        class="modal"
+        id="startScreen">
+
+        <div class="modal-card">
+
+
+            <button
+                class="close-button"
+                onclick="closeModal('startScreen')">
+
+                ×
 
             </button>
 
 
-            <button class="level-option" onclick="chooseLevel('little')">
-
-                <div class="option-icon">📖</div>
-
-                <div class="option-text">
-                    <h3>I know a little German</h3>
-
-                    <p>
-                        I know some words and basic phrases.
-                    </p>
-                </div>
-
-                <span class="option-arrow">→</span>
-
-            </button>
+            <div class="modal-icon">
+                🇩🇪
+            </div>
 
 
-            <button class="level-option" onclick="chooseLevel('test')">
+            <p class="section-label">
+                WELCOME TO LINGORA
+            </p>
 
-                <div class="option-icon">🎯</div>
 
-                <div class="option-text">
-                    <h3>Take the placement test</h3>
+            <h2>
+                How much German do you know?
+            </h2>
 
-                    <p>
-                        Let Lingora find the right level for me.
-                    </p>
-                </div>
 
-                <span class="option-arrow">→</span>
+            <p class="modal-description">
+
+                Choose the option that fits you best.
+                You can change your path later.
+
+            </p>
+
+
+
+            <div class="level-options">
+
+
+                <button
+                    class="level-option"
+                    onclick="chooseLevel('beginner')">
+
+                    <span class="option-icon">
+                        🌱
+                    </span>
+
+                    <span class="option-text">
+
+                        <strong>
+                            I'm a complete beginner
+                        </strong>
+
+                        <small>
+                            I've never learned German before.
+                        </small>
+
+                    </span>
+
+                    <span class="option-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+
+                <button
+                    class="level-option"
+                    onclick="chooseLevel('little')">
+
+                    <span class="option-icon">
+                        📖
+                    </span>
+
+                    <span class="option-text">
+
+                        <strong>
+                            I know a little German
+                        </strong>
+
+                        <small>
+                            I know some words and phrases.
+                        </small>
+
+                    </span>
+
+                    <span class="option-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+
+                <button
+                    class="level-option"
+                    onclick="chooseLevel('test')">
+
+                    <span class="option-icon">
+                        🎯
+                    </span>
+
+                    <span class="option-text">
+
+                        <strong>
+                            Take the placement test
+                        </strong>
+
+                        <small>
+                            Let Lingora find my level.
+                        </small>
+
+                    </span>
+
+                    <span class="option-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+            </div>
+
+
+            <button
+                class="back-button"
+                onclick="closeModal('startScreen')">
+
+                ← Back
 
             </button>
 
         </div>
-
-
-        <button class="back-button" onclick="hideStartScreen()">
-            ← Back
-        </button>
 
     </div>
 
-</section>
-</main>
 
 
-<footer>
+    <!-- =========================
+         LOGIN
+    ========================== -->
 
-    <div class="logo">
-        <span class="logo-icon">L</span>
-        Lingora
+    <div
+        class="modal"
+        id="loginModal">
+
+        <div class="modal-card account-card">
+
+            <button
+                class="close-button"
+                onclick="closeModal('loginModal')">
+
+                ×
+
+            </button>
+
+
+            <div class="modal-icon">
+                👋
+            </div>
+
+
+            <p class="section-label">
+                WELCOME BACK
+            </p>
+
+
+            <h2>
+                Log in to Lingora
+            </h2>
+
+
+            <p class="modal-description">
+                Continue your German journey.
+            </p>
+
+
+            <form onsubmit="login(event)">
+
+                <label>
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    placeholder="you@example.com"
+                    required>
+
+
+                <label>
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    placeholder="Your password"
+                    required>
+
+
+                <button
+                    type="submit"
+                    class="primary-button full-button">
+
+                    Log in
+
+                </button>
+
+            </form>
+
+
+            <p class="switch-account">
+
+                Don't have an account?
+
+                <button onclick="switchToSignup()">
+                    Sign up
+                </button>
+
+            </p>
+
+        </div>
+
     </div>
 
-    <p>Learn German. Every day.</p>
-
-</footer>
 
 
-<script src="script.js"></script>
+    <!-- =========================
+         SIGN UP
+    ========================== -->
+
+    <div
+        class="modal"
+        id="signupModal">
+
+        <div class="modal-card account-card">
+
+            <button
+                class="close-button"
+                onclick="closeModal('signupModal')">
+
+                ×
+
+            </button>
+
+
+            <div class="modal-icon">
+                🌱
+            </div>
+
+
+            <p class="section-label">
+                JOIN LINGORA
+            </p>
+
+
+            <h2>
+                Create your account
+            </h2>
+
+
+            <p class="modal-description">
+                Start your German journey today.
+            </p>
+
+
+            <form onsubmit="signup(event)">
+
+                <label>
+                    Name
+                </label>
+
+                <input
+                    type="text"
+                    placeholder="Your name"
+                    required>
+
+
+                <label>
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    placeholder="you@example.com"
+                    required>
+
+
+                <label>
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    placeholder="Create a password"
+                    minlength="6"
+                    required>
+
+
+                <button
+                    type="submit"
+                    class="primary-button full-button">
+
+                    Create Account
+
+                </button>
+
+            </form>
+
+
+            <p class="switch-account">
+
+                Already have an account?
+
+                <button onclick="switchToLogin()">
+                    Log in
+                </button>
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script src="script.js"></script>
 
 </body>
+
 </html>
