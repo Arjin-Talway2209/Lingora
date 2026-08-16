@@ -1,27 +1,179 @@
+/* =================================
+   LINGORA
+   Main JavaScript
+================================= */
+
+
+/* =================================
+   DATA
+================================= */
+
 let xp = 0;
+
 let streak = 0;
+
 let hearts = 5;
+
 let progress = 0;
 
 
-/* =========================
-   START LEARNING
-========================= */
+/* =================================
+   ELEMENT HELPERS
+================================= */
 
-function startLearning() {
+function showModal(id) {
 
-    document
-        .getElementById("learn")
-        .scrollIntoView({
-            behavior: "smooth"
-        });
+    const modal = document.getElementById(id);
+
+    if (modal) {
+        modal.classList.add("active");
+    }
 
 }
 
 
-/* =========================
-   OPEN LESSON
-========================= */
+function closeModal(id) {
+
+    const modal = document.getElementById(id);
+
+    if (modal) {
+        modal.classList.remove("active");
+    }
+
+}
+
+
+/* =================================
+   START LEARNING
+================================= */
+
+function openStartScreen() {
+
+    showModal("startScreen");
+
+}
+
+
+/* =================================
+   LEVEL SELECTION
+================================= */
+
+function chooseLevel(level) {
+
+    if (level === "beginner") {
+
+        closeModal("startScreen");
+
+        alert(
+            "🌱 Welcome to Lingora!\n\n" +
+            "You will start at German A1, Lesson 1."
+        );
+
+        return;
+    }
+
+
+    if (level === "little") {
+
+        closeModal("startScreen");
+
+        alert(
+            "📖 Great!\n\n" +
+            "We'll give you a short beginner check."
+        );
+
+        return;
+    }
+
+
+    if (level === "test") {
+
+        closeModal("startScreen");
+
+        alert(
+            "🎯 Placement Test\n\n" +
+            "The test will determine your German level."
+        );
+
+        return;
+    }
+
+}
+
+
+/* =================================
+   LOGIN
+================================= */
+
+function openLogin() {
+
+    closeModal("signupModal");
+
+    showModal("loginModal");
+
+}
+
+
+function login(event) {
+
+    event.preventDefault();
+
+    alert(
+        "Login system will be connected later."
+    );
+
+}
+
+
+/* =================================
+   SIGN UP
+================================= */
+
+function openSignup() {
+
+    closeModal("loginModal");
+
+    showModal("signupModal");
+
+}
+
+
+function signup(event) {
+
+    event.preventDefault();
+
+    alert(
+        "Account creation will be connected later."
+    );
+
+}
+
+
+/* =================================
+   SWITCH ACCOUNT WINDOWS
+================================= */
+
+function switchToSignup() {
+
+    closeModal("loginModal");
+
+    showModal("signupModal");
+
+}
+
+
+function switchToLogin() {
+
+    closeModal("signupModal");
+
+    showModal("loginModal");
+
+}
+
+
+/* =================================
+   LESSONS
+================================= */
 
 function openLesson(number) {
 
@@ -33,132 +185,176 @@ function openLesson(number) {
 
         updateProgress();
 
-        alert("🎉 Great job! You completed Greetings!");
+        alert(
+            "🎉 Lesson completed!\n\n" +
+            "+20 XP"
+        );
 
+        return;
     }
+
 
     if (number === 2) {
 
-        alert("📚 Lesson 2 is coming next!");
+        alert(
+            "📚 Lesson 2 is coming soon!"
+        );
 
+        return;
     }
 
 }
 
 
-/* =========================
+function lockedLesson() {
+
+    alert(
+        "🔒 Complete the previous lesson first!"
+    );
+
+}
+
+
+/* =================================
    PRACTICE
-========================= */
+================================= */
 
 function practice(type) {
 
-    if (type === "vocabulary") {
-
-        alert("🧠 Vocabulary practice is coming soon!");
-
-    }
-
-    if (type === "listening") {
-
-        alert("🎧 Listening practice is coming soon!");
-
-    }
-
-    if (type === "grammar") {
-
-        alert("✍️ Grammar practice is coming soon!");
-
-    }
+    alert(
+        "📚 " +
+        type +
+        " practice is coming soon!"
+    );
 
 }
 
 
-/* =========================
+/* =================================
    XP
-========================= */
+================================= */
 
 function addXP(amount) {
 
     xp += amount;
 
-    document.getElementById("xp").textContent = xp;
+    const element =
+        document.getElementById("xp");
+
+    if (element) {
+
+        element.textContent = xp;
+
+    }
 
 }
 
 
-/* =========================
+/* =================================
    PROGRESS
-========================= */
+================================= */
 
 function updateProgress() {
 
-    document.getElementById("progressFill").style.width =
-        progress + "%";
+    const fill =
+        document.getElementById("progressFill");
 
-    document.getElementById("progressText").textContent =
-        progress + "%";
+    const text =
+        document.getElementById("progressText");
+
+
+    if (fill) {
+
+        fill.style.width =
+            progress + "%";
+
+    }
+
+
+    if (text) {
+
+        text.textContent =
+            progress + "%";
+
+    }
 
 }
 
 
-/* =========================
+/* =================================
    DARK MODE
-========================= */
+================================= */
 
-const darkButton =
+const darkModeButton =
     document.getElementById("darkMode");
 
-darkButton.addEventListener("click", function () {
 
-    document.body.classList.toggle("dark");
+if (darkModeButton) {
 
-    if (document.body.classList.contains("dark")) {
+    darkModeButton.addEventListener(
+        "click",
+        function () {
 
-        darkButton.textContent = "☀️";
-
-    } else {
-
-        darkButton.textContent = "🌙";
-
-    }
-
-});
-function hideStartScreen() {
-
-    document
-        .getElementById("startScreen")
-        .classList.remove("active");
-
-}
+            document.body.classList.toggle("dark");
 
 
-function chooseLevel(level) {
+            if (
+                document.body.classList.contains("dark")
+            ) {
 
-    if (level === "beginner") {
+                darkModeButton.textContent = "☀️";
 
-        alert(
-            "🌱 Welcome to Lingora!\n\n" +
-            "You'll start from German A1, Lesson 1."
-        );
+            } else {
 
-    }
+                darkModeButton.textContent = "🌙";
 
-    if (level === "little") {
+            }
 
-        alert(
-            "📖 Great!\n\n" +
-            "We'll give you a short beginner check first."
-        );
-
-    }
-
-    if (level === "test") {
-
-        alert(
-            "🎯 Placement Test\n\n" +
-            "The Lingora placement test is coming next!"
-        );
-
-    }
+        }
+    );
 
 }
+
+
+/* =================================
+   CLOSE MODAL WHEN CLICKING OUTSIDE
+================================= */
+
+document.addEventListener(
+    "click",
+    function (event) {
+
+        if (
+            event.target.classList.contains("modal")
+        ) {
+
+            event.target.classList.remove("active");
+
+        }
+
+    }
+);
+
+
+/* =================================
+   ESCAPE KEY
+================================= */
+
+document.addEventListener(
+    "keydown",
+    function (event) {
+
+        if (event.key === "Escape") {
+
+            document
+                .querySelectorAll(".modal.active")
+                .forEach(function (modal) {
+
+                    modal.classList.remove("active");
+
+                });
+
+        }
+
+    }
+);
