@@ -1,18 +1,15 @@
-/* =========================================
-   LINGORA — Modern Book-Inspired Design
-   ========================================= */
-
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
 
 
-/* =========================================
+/* =================================
    VARIABLES
-   ========================================= */
+================================= */
 
 :root {
+
     --cream: #f6f0e5;
-    --cream-light: #fbf8f1;
     --paper: #fffdf8;
+    --paper-2: #fbf8f1;
 
     --green: #6f9f72;
     --green-dark: #527b58;
@@ -31,16 +28,17 @@
 
     --border: #ded6c8;
 
-    --shadow: 0 8px 25px rgba(75, 63, 45, 0.08);
-    --shadow-hover: 0 12px 30px rgba(75, 63, 45, 0.14);
+    --shadow:
+        0 8px 25px rgba(75, 63, 45, 0.08);
 
-    --radius: 20px;
+    --shadow-large:
+        0 20px 60px rgba(75, 63, 45, 0.16);
 }
 
 
-/* =========================================
+/* =================================
    RESET
-   ========================================= */
+================================= */
 
 * {
     margin: 0;
@@ -48,22 +46,28 @@
     box-sizing: border-box;
 }
 
+
 html {
     scroll-behavior: smooth;
 }
 
+
 body {
-    font-family: "DM Sans", Arial, sans-serif;
+
+    font-family:
+        "DM Sans",
+        Arial,
+        sans-serif;
 
     background:
         radial-gradient(
             circle at 10% 10%,
-            rgba(111, 159, 114, 0.07),
+            rgba(111,159,114,.07),
             transparent 25%
         ),
         radial-gradient(
             circle at 90% 20%,
-            rgba(184, 92, 92, 0.05),
+            rgba(184,92,92,.05),
             transparent 25%
         ),
         var(--cream);
@@ -73,29 +77,37 @@ body {
     min-height: 100vh;
 
     transition:
-        background 0.3s ease,
-        color 0.3s ease;
+        background .3s,
+        color .3s;
 }
 
 
-/* =========================================
+/* =================================
    NAVBAR
-   ========================================= */
+================================= */
 
 .navbar {
+
     height: 78px;
 
-    background: rgba(255, 253, 248, 0.92);
-
-    border-bottom: 1px solid var(--border);
+    padding:
+        0
+        max(25px, 7%);
 
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
 
-    padding: 0 max(30px, 7%);
+    background:
+        rgba(255,253,248,.94);
+
+    border-bottom:
+        1px solid var(--border);
 
     position: sticky;
+
     top: 0;
 
     z-index: 100;
@@ -104,24 +116,31 @@ body {
 }
 
 
-/* LOGO */
-
 .logo {
-    display: flex;
-    align-items: center;
-    gap: 11px;
 
-    font-size: 25px;
-    font-weight: 700;
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
 
     color: var(--brown);
+
+    text-decoration: none;
+
+    font-size: 25px;
+
+    font-weight: 700;
 }
 
+
 .logo-icon {
+
     width: 40px;
     height: 40px;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
@@ -131,288 +150,419 @@ body {
 
     border-radius: 13px;
 
-    font-size: 22px;
-    font-weight: 700;
-
     box-shadow:
         0 4px 0 var(--green-dark);
+
+    font-weight: 800;
 }
 
 
-/* NAVIGATION */
+.navigation {
 
-.navbar nav {
     display: flex;
-    align-items: center;
 
-    gap: 34px;
+    gap: 30px;
 }
 
-.navbar nav a {
+
+.navigation a {
+
     color: var(--muted);
 
     text-decoration: none;
 
-    font-size: 15px;
-    font-weight: 600;
+    font-size: 14px;
 
-    transition: 0.2s ease;
+    font-weight: 600;
 }
 
-.navbar nav a:hover {
+
+.navigation a:hover {
     color: var(--green-dark);
 }
 
 
-/* DARK MODE BUTTON */
+.nav-actions {
 
-.icon-button {
-    width: 42px;
-    height: 42px;
+    display: flex;
 
-    border: 1px solid var(--border);
+    align-items: center;
+
+    gap: 9px;
+}
+
+
+.theme-button,
+.login-button,
+.signup-button {
+
+    font-family: inherit;
+
+    cursor: pointer;
+
+    font-weight: 700;
+}
+
+
+.theme-button {
+
+    width: 40px;
+    height: 40px;
+
+    border:
+        1px solid var(--border);
 
     background: var(--paper);
 
     border-radius: 50%;
 
-    cursor: pointer;
-
-    font-size: 19px;
-
-    transition: 0.2s ease;
-}
-
-.icon-button:hover {
-    transform: rotate(12deg);
-
-    box-shadow: var(--shadow);
+    font-size: 18px;
 }
 
 
-/* =========================================
+.login-button {
+
+    padding:
+        10px 16px;
+
+    border: none;
+
+    background: transparent;
+
+    color: var(--green-dark);
+}
+
+
+.signup-button {
+
+    padding:
+        10px 17px;
+
+    border: none;
+
+    border-radius: 11px;
+
+    background: var(--green);
+
+    color: white;
+
+    box-shadow:
+        0 3px 0 var(--green-dark);
+}
+
+
+.signup-button:active {
+    transform: translateY(3px);
+    box-shadow: none;
+}
+
+
+/* =================================
    HERO
-   ========================================= */
+================================= */
 
 .hero {
+
     max-width: 1180px;
 
     margin: auto;
 
     padding:
-        90px
-        max(30px, 7%)
-        80px;
+        90px 7% 75px;
 
     display: flex;
 
     align-items: center;
+
     justify-content: space-between;
 
-    gap: 70px;
+    gap: 60px;
 }
 
 
-/* HERO TEXT */
-
-.hero-text {
+.hero-content {
     max-width: 650px;
 }
 
-.eyebrow {
+
+.eyebrow,
+.section-label {
+
     color: var(--green-dark);
 
-    font-size: 12px;
+    font-size: 11px;
 
     font-weight: 800;
 
-    letter-spacing: 2.5px;
+    letter-spacing: 2.3px;
 
-    margin-bottom: 15px;
+    margin-bottom: 13px;
 }
 
-.hero h1 {
-    font-family: "Playfair Display", Georgia, serif;
 
-    font-size: clamp(48px, 6vw, 76px);
+.hero h1 {
+
+    font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(48px, 6vw, 76px);
 
     line-height: 1.08;
 
     color: var(--brown);
 
     margin-bottom: 24px;
-
-    letter-spacing: -1px;
 }
+
 
 .hero h1 span {
     color: var(--green-dark);
 }
 
-.hero-text > p:not(.eyebrow) {
+
+.hero-description {
+
     color: var(--muted);
+
+    max-width: 560px;
 
     font-size: 18px;
 
-    line-height: 1.75;
+    line-height: 1.7;
 
-    max-width: 570px;
-
-    margin-bottom: 32px;
+    margin-bottom: 30px;
 }
 
 
-/* START BUTTON */
+.primary-button {
 
-.start-button {
+    border: none;
+
     background: var(--green);
 
     color: white;
 
-    border: none;
+    padding:
+        15px 25px;
 
-    padding: 16px 28px;
-
-    border-radius: 14px;
+    border-radius: 13px;
 
     font-family: inherit;
 
-    font-size: 16px;
+    font-size: 15px;
 
     font-weight: 700;
 
     cursor: pointer;
 
     box-shadow:
-        0 5px 0 var(--green-dark),
-        0 10px 20px rgba(82, 123, 88, 0.15);
+        0 5px 0 var(--green-dark);
 
-    transition: 0.15s ease;
+    transition: .15s;
 }
 
-.start-button:hover {
+
+.primary-button:hover {
     transform: translateY(-2px);
-
-    box-shadow:
-        0 7px 0 var(--green-dark),
-        0 14px 25px rgba(82, 123, 88, 0.18);
 }
 
-.start-button:active {
-    transform: translateY(4px);
+
+.primary-button:active {
+
+    transform:
+        translateY(4px);
 
     box-shadow:
         0 1px 0 var(--green-dark);
 }
 
 
-/* HERO ILLUSTRATION */
+/* HERO ART */
 
-.hero-character {
-    width: 260px;
-    height: 260px;
+.hero-art {
+
+    width: 290px;
+    height: 290px;
 
     flex-shrink: 0;
+}
 
-    background: var(--green-light);
 
-    border: 1px solid rgba(82, 123, 88, 0.12);
+.art-circle {
 
-    border-radius: 48% 52% 55% 45%;
+    width: 100%;
+    height: 100%;
+
+    border-radius:
+        48% 52% 45% 55%;
+
+    background:
+        var(--green-light);
+
+    position: relative;
 
     display: flex;
 
     align-items: center;
     justify-content: center;
 
-    font-size: 105px;
+    box-shadow: var(--shadow);
+}
+
+
+.art-card {
+
+    width: 155px;
+
+    padding: 18px;
+
+    background: var(--paper);
+
+    border-radius: 15px;
 
     box-shadow: var(--shadow);
 
-    animation: floating 4s ease-in-out infinite;
-}
+    transform: rotate(-4deg);
 
-@keyframes floating {
-
-    0%,
-    100% {
-        transform: translateY(0) rotate(0deg);
-    }
-
-    50% {
-        transform: translateY(-10px) rotate(2deg);
-    }
+    text-align: center;
 }
 
 
-/* =========================================
+.art-card span {
+
+    display: block;
+
+    font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
+    color: var(--brown);
+
+    font-size: 23px;
+
+    margin-bottom: 5px;
+}
+
+
+.art-card small {
+    font-size: 18px;
+}
+
+
+.art-leaf {
+    position: absolute;
+
+    font-size: 35px;
+}
+
+
+.leaf-one {
+    top: 35px;
+    left: 35px;
+
+    transform: rotate(-20deg);
+}
+
+
+.leaf-two {
+    right: 25px;
+    bottom: 40px;
+
+    transform: rotate(20deg);
+}
+
+
+/* =================================
    STATS
-   ========================================= */
+================================= */
 
-.stats {
+.stats-section {
+
     max-width: 1050px;
 
-    margin: 0 auto 35px;
+    margin:
+        0 auto 35px;
 
-    padding: 0 30px;
+    padding:
+        0 30px;
 
     display: grid;
 
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns:
+        repeat(3, 1fr);
 
     gap: 18px;
 }
 
+
 .stat-card {
+
     background: var(--paper);
 
-    border: 1px solid var(--border);
+    border:
+        1px solid var(--border);
 
-    border-radius: var(--radius);
+    border-radius: 18px;
 
-    padding: 20px 22px;
+    padding: 19px;
 
     display: flex;
 
     align-items: center;
 
-    gap: 15px;
+    gap: 14px;
 
     box-shadow: var(--shadow);
-
-    transition: 0.2s ease;
 }
 
-.stat-card:hover {
-    transform: translateY(-3px);
-
-    box-shadow: var(--shadow-hover);
-}
 
 .stat-icon {
+
     width: 46px;
     height: 46px;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
-    background: var(--cream);
+    border-radius: 13px;
 
-    border-radius: 14px;
-
-    font-size: 23px;
+    font-size: 21px;
 }
+
+
+.stat-icon.green {
+    background: var(--green-light);
+}
+
+
+.stat-icon.gold {
+    background: var(--gold-light);
+}
+
+
+.stat-icon.red {
+    background: var(--red-light);
+}
+
 
 .stat-card strong {
+
     display: block;
 
-    font-size: 23px;
-
     color: var(--brown);
+
+    font-size: 22px;
 }
 
-.stat-card small {
+
+.stat-card span {
+
     color: var(--muted);
 
     font-size: 12px;
@@ -421,63 +571,77 @@ body {
 }
 
 
-/* =========================================
+/* =================================
    DAILY GOAL
-   ========================================= */
+================================= */
 
-.daily-goal {
+.daily-section {
+
     max-width: 1050px;
 
-    margin: 0 auto 80px;
+    margin:
+        0 auto 80px;
 
-    padding: 26px 28px;
+    padding:
+        25px 28px;
 
     background: var(--paper);
 
-    border: 1px solid var(--border);
+    border:
+        1px solid var(--border);
 
-    border-radius: var(--radius);
+    border-radius: 20px;
 
     box-shadow: var(--shadow);
 
     display: flex;
 
     align-items: center;
+
     justify-content: space-between;
 
-    gap: 35px;
+    gap: 30px;
 }
 
-.daily-goal h2 {
-    font-family: "Playfair Display", Georgia, serif;
 
-    font-size: 23px;
+.daily-section h2 {
+
+    font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
 
     color: var(--brown);
 
     margin-bottom: 5px;
 }
 
-.daily-goal p {
+
+.daily-section > div:first-child > p:last-child {
+
     color: var(--muted);
 
-    font-size: 14px;
+    font-size: 13px;
 }
 
-.progress-container {
+
+.goal-progress {
+
     width: 330px;
 
     display: flex;
 
     align-items: center;
 
-    gap: 13px;
+    gap: 12px;
 }
 
-.progress-bar {
-    height: 11px;
+
+.progress-track {
 
     flex: 1;
+
+    height: 11px;
 
     background: var(--cream);
 
@@ -486,80 +650,83 @@ body {
     overflow: hidden;
 }
 
-#progressFill {
-    width: 0%;
+
+.progress-fill {
 
     height: 100%;
+
+    width: 0%;
 
     background: var(--green);
 
     border-radius: 20px;
 
-    transition: width 0.6s ease;
-}
-
-#progressText {
-    color: var(--green-dark);
-
-    font-size: 13px;
-
-    font-weight: 800;
+    transition: .5s;
 }
 
 
-/* =========================================
-   LEARNING PATH
-   ========================================= */
+/* =================================
+   LEARNING
+================================= */
 
-.learning {
+.learning-section {
+
     max-width: 850px;
 
     margin: auto;
 
     padding:
-        0
-        30px
-        90px;
+        0 30px 90px;
 }
 
-.section-title {
+
+.section-heading {
+
     display: flex;
 
-    justify-content: space-between;
-
     align-items: flex-end;
+
+    justify-content: space-between;
 
     margin-bottom: 35px;
 }
 
-.section-title h2 {
-    font-family: "Playfair Display", Georgia, serif;
 
-    font-size: 38px;
+.section-heading h2,
+.practice-section h2 {
+
+    font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
 
     color: var(--brown);
+
+    font-size: 37px;
 }
 
-.level {
+
+.level-badge {
+
     background: var(--red-light);
 
     color: var(--red-dark);
 
-    padding: 8px 18px;
+    padding:
+        8px 17px;
 
     border-radius: 30px;
 
     font-size: 13px;
 
     font-weight: 800;
-
-    border: 1px solid rgba(184, 92, 92, 0.15);
 }
 
 
 /* PATH */
 
-.path {
+.learning-path {
+
     display: flex;
 
     flex-direction: column;
@@ -567,81 +734,56 @@ body {
     align-items: center;
 }
 
+
 .lesson {
+
     width: min(100%, 650px);
-
-    padding: 20px 23px;
-
-    border-radius: var(--radius);
 
     display: flex;
 
     align-items: center;
 
-    gap: 20px;
+    gap: 18px;
 
-    border: 1px solid var(--border);
+    padding:
+        19px 21px;
 
     background: var(--paper);
 
-    cursor: pointer;
+    border:
+        1px solid var(--border);
+
+    border-radius: 19px;
 
     box-shadow: var(--shadow);
 
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease,
-        border-color 0.2s ease;
+    font-family: inherit;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition: .2s;
 }
+
 
 .lesson:hover:not(.locked) {
-    transform: translateY(-3px);
 
-    box-shadow: var(--shadow-hover);
-}
-
-
-/* COMPLETED */
-
-.completed {
-    border-left: 5px solid var(--green);
-}
-
-.completed .lesson-circle {
-    background: var(--green);
-
-    color: white;
-}
-
-
-/* CURRENT */
-
-.current {
-    border: 2px solid var(--green);
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--paper),
-            #f3f8f2
-        );
-}
-
-.current .lesson-circle {
-    background: var(--green);
-
-    color: white;
+    transform:
+        translateY(-3px);
 
     box-shadow:
-        0 0 0 6px var(--green-light);
+        0 12px 30px
+        rgba(75,63,45,.13);
 }
 
 
-/* CIRCLE */
+.lesson-number {
 
-.lesson-circle {
-    min-width: 62px;
-    height: 62px;
+    width: 57px;
+    height: 57px;
+
+    flex-shrink: 0;
 
     border-radius: 50%;
 
@@ -650,608 +792,479 @@ body {
     align-items: center;
     justify-content: center;
 
-    font-size: 21px;
+    background: var(--green);
+
+    color: white;
 
     font-weight: 800;
+
+    font-size: 19px;
 }
 
 
-/* LOCKED */
+.lesson.current {
 
-.locked {
-    opacity: 0.52;
+    border:
+        2px solid var(--green);
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--paper),
+            #f1f7f1
+        );
+}
+
+
+.lesson.locked {
+
+    opacity: .52;
 
     cursor: not-allowed;
 
     box-shadow: none;
 }
 
-.locked .lesson-circle {
-    background: #ebe6dc;
 
-    color: #948d82;
+.lesson.locked .lesson-number {
+
+    background: #e8e3d9;
+
+    color: #8f897f;
 }
 
 
-/* LESSON TEXT */
+.lesson-content {
 
-.lesson-info h3 {
-    margin-bottom: 5px;
+    flex: 1;
 
-    font-size: 19px;
-
-    color: var(--brown);
-}
-
-.lesson-info p {
-    color: var(--muted);
-
-    font-size: 14px;
-}
-
-
-/* PATH LINE */
-
-.path-line {
-    width: 3px;
-
-    height: 38px;
-
-    background: var(--border);
-}
-
-
-/* =========================================
-   PRACTICE
-   ========================================= */
-
-.practice {
-    max-width: 1050px;
-
-    margin: auto;
-
-    padding:
-        0
-        30px
-        100px;
-}
-
-.practice > h2 {
-    font-family: "Playfair Display", Georgia, serif;
-
-    font-size: 38px;
-
-    color: var(--brown);
-
-    margin-bottom: 27px;
-}
-
-.practice-grid {
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 20px;
-}
-
-.practice-card {
-    background: var(--paper);
-
-    border: 1px solid var(--border);
-
-    border-radius: var(--radius);
-
-    padding: 27px;
-
-    box-shadow: var(--shadow);
-
-    transition: 0.2s ease;
-}
-
-.practice-card:hover {
-    transform: translateY(-4px);
-
-    box-shadow: var(--shadow-hover);
-}
-
-.practice-card > span {
-    width: 55px;
-    height: 55px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: var(--cream);
-
-    border-radius: 16px;
-
-    font-size: 28px;
-}
-
-.practice-card h3 {
-    margin: 17px 0 8px;
-
-    color: var(--brown);
-
-    font-size: 19px;
-}
-
-.practice-card p {
-    color: var(--muted);
-
-    line-height: 1.6;
-
-    font-size: 14px;
-
-    margin-bottom: 22px;
-}
-
-.practice-card button {
-    width: 100%;
-
-    padding: 12px;
-
-    border: 1px solid rgba(111, 159, 114, 0.25);
-
-    border-radius: 12px;
-
-    background: var(--green-light);
-
-    color: var(--green-dark);
-
-    font-family: inherit;
-
-    font-weight: 700;
-
-    cursor: pointer;
-
-    transition: 0.2s ease;
-}
-
-.practice-card button:hover {
-    background: var(--green);
-
-    color: white;
-}
-
-
-/* =========================================
-   FOOTER
-   ========================================= */
-
-footer {
-    background: #eee7da;
-
-    border-top: 1px solid var(--border);
-
-    padding: 35px max(30px, 7%);
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-}
-
-footer p {
-    color: var(--muted);
-
-    font-size: 14px;
-}
-
-
-/* =========================================
-   DARK MODE
-   ========================================= */
-
-body.dark {
-    --cream: #1d211e;
-    --cream-light: #252a26;
-    --paper: #292e2a;
-
-    --brown: #f3eee5;
-    --text: #eee9df;
-    --muted: #b3afa7;
-
-    --border: #3b403c;
-
-    --green-light: #304434;
-    --red-light: #493333;
-    --gold-light: #463d27;
-
-    background: #1d211e;
-}
-
-body.dark .navbar {
-    background: rgba(41, 46, 42, 0.94);
-}
-
-body.dark .logo {
-    color: #f3eee5;
-}
-
-body.dark .hero h1,
-body.dark .section-title h2,
-body.dark .practice > h2,
-body.dark .daily-goal h2,
-body.dark .lesson-info h3 {
-    color: #f3eee5;
-}
-
-body.dark .hero-character {
-    background: #304434;
-}
-
-body.dark .progress-bar {
-    background: #383d39;
-}
-
-body.dark .locked .lesson-circle {
-    background: #373b38;
-}
-
-body.dark .current {
-    background: #29362d;
-}
-
-body.dark footer {
-    background: #252a26;
-}
-
-
-/* =========================================
-   MOBILE
-   ========================================= */
-
-@media (max-width: 800px) {
-
-    .navbar {
-        padding: 0 20px;
-    }
-
-    .navbar nav {
-        display: none;
-    }
-
-
-    /* HERO */
-
-    .hero {
-        padding:
-            65px
-            25px
-            60px;
-
-        flex-direction: column;
-
-        text-align: center;
-
-        gap: 45px;
-    }
-
-    .hero-text {
-        display: flex;
-
-        flex-direction: column;
-
-        align-items: center;
-    }
-
-    .hero h1 {
-        font-size: 48px;
-    }
-
-    .hero-text > p:not(.eyebrow) {
-        font-size: 16px;
-    }
-
-    .hero-character {
-        width: 190px;
-        height: 190px;
-
-        font-size: 75px;
-    }
-
-
-    /* STATS */
-
-    .stats {
-        padding: 0 20px;
-
-        grid-template-columns: 1fr;
-    }
-
-
-    /* DAILY GOAL */
-
-    .daily-goal {
-        margin:
-            0
-            20px
-            65px;
-
-        flex-direction: column;
-
-        align-items: stretch;
-    }
-
-    .progress-container {
-        width: 100%;
-    }
-
-
-    /* LEARNING */
-
-    .learning {
-        padding:
-            0
-            20px
-            70px;
-    }
-
-    .section-title h2 {
-        font-size: 32px;
-    }
-
-    .lesson {
-        padding: 17px;
-    }
-
-    .lesson-circle {
-        min-width: 54px;
-        height: 54px;
-    }
-
-
-    /* PRACTICE */
-
-    .practice {
-        padding:
-            0
-            20px
-            75px;
-    }
-
-    .practice > h2 {
-        font-size: 32px;
-    }
-
-    .practice-grid {
-        grid-template-columns: 1fr;
-    }
-
-
-    /* FOOTER */
-
-    footer {
-        flex-direction: column;
-
-        gap: 15px;
-
-        text-align: center;
-    }
-}
-
-
-/* =========================================
-   SMALL PHONES
-   ========================================= */
-
-@media (max-width: 450px) {
-
-    .logo {
-        font-size: 21px;
-    }
-
-    .logo-icon {
-        width: 36px;
-        height: 36px;
-    }
-
-    .hero h1 {
-        font-size: 40px;
-    }
-
-    .hero-character {
-        width: 160px;
-        height: 160px;
-
-        font-size: 65px;
-    }
-
-    .section-title {
-        align-items: center;
-    }
-
-    .level {
-        padding: 7px 13px;
-    }
-
-    .lesson-info h3 {
-        font-size: 17px;
-    }
-}
-/* =========================================
-   STARTING LEVEL SCREEN
-   ========================================= */
-
-.start-screen {
-    position: fixed;
-
-    inset: 0;
-
-    z-index: 200;
-
-    background: rgba(246, 240, 229, 0.96);
-
-    backdrop-filter: blur(10px);
-
-    display: none;
-
-    align-items: center;
-    justify-content: center;
-
-    padding: 25px;
-
-    overflow-y: auto;
-}
-
-.start-screen.active {
-    display: flex;
-}
-
-.start-card {
-    width: min(650px, 100%);
-
-    background: var(--paper);
-
-    border: 1px solid var(--border);
-
-    border-radius: 28px;
-
-    padding: 45px;
-
-    text-align: center;
-
-    box-shadow:
-        0 20px 60px rgba(75, 63, 45, 0.15);
-}
-
-.start-decoration {
-    width: 70px;
-    height: 70px;
-
-    margin: 0 auto 22px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: var(--green-light);
-
-    border-radius: 22px;
-
-    font-size: 35px;
-}
-
-.start-card h2 {
-    font-family: "Playfair Display", Georgia, serif;
-
-    color: var(--brown);
-
-    font-size: 34px;
-
-    margin-bottom: 12px;
-}
-
-.start-description {
-    color: var(--muted);
-
-    line-height: 1.6;
-
-    max-width: 470px;
-
-    margin: 0 auto 30px;
-}
-
-
-/* LEVEL OPTIONS */
-
-.level-options {
     display: flex;
 
     flex-direction: column;
 
-    gap: 13px;
-
-    text-align: left;
+    gap: 5px;
 }
 
-.level-option {
-    width: 100%;
 
-    display: flex;
+.lesson-content strong {
 
-    align-items: center;
-
-    gap: 17px;
-
-    padding: 17px;
-
-    background: var(--paper);
-
-    border: 1px solid var(--border);
-
-    border-radius: 18px;
-
-    cursor: pointer;
-
-    font-family: inherit;
-
-    color: var(--text);
-
-    text-align: left;
-
-    transition: 0.2s ease;
-}
-
-.level-option:hover {
-    border-color: var(--green);
-
-    transform: translateY(-2px);
-
-    box-shadow: var(--shadow);
-}
-
-.option-icon {
-    width: 52px;
-    height: 52px;
-
-    flex-shrink: 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: var(--cream);
-
-    border-radius: 15px;
-
-    font-size: 25px;
-}
-
-.option-text {
-    flex: 1;
-}
-
-.option-text h3 {
     color: var(--brown);
 
-    font-size: 16px;
-
-    margin-bottom: 5px;
+    font-size: 18px;
 }
 
-.option-text p {
+
+.lesson-content small {
+
     color: var(--muted);
 
     font-size: 13px;
 }
 
-.option-arrow {
+
+.lesson-arrow {
+
     color: var(--green-dark);
 
-    font-size: 23px;
+    font-size: 22px;
 
     font-weight: 700;
 }
 
 
-/* BACK BUTTON */
+.path-line {
+
+    width: 3px;
+
+    height: 35px;
+
+    background: var(--border);
+}
+
+
+/* =================================
+   PRACTICE
+================================= */
+
+.practice-section {
+
+    max-width: 1050px;
+
+    margin: auto;
+
+    padding:
+        0 30px 100px;
+}
+
+
+.practice-section h2 {
+
+    margin-bottom: 27px;
+}
+
+
+.practice-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+
+.practice-card {
+
+    background: var(--paper);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 20px;
+
+    padding: 25px;
+
+    box-shadow: var(--shadow);
+}
+
+
+.practice-icon {
+
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: var(--cream);
+
+    border-radius: 14px;
+
+    font-size: 26px;
+}
+
+
+.practice-card h3 {
+
+    color: var(--brown);
+
+    margin:
+        16px 0 8px;
+}
+
+
+.practice-card p {
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    margin-bottom: 20px;
+}
+
+
+.practice-card button {
+
+    border: none;
+
+    background: var(--green-light);
+
+    color: var(--green-dark);
+
+    padding:
+        11px 15px;
+
+    border-radius: 11px;
+
+    font-family: inherit;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+/* =================================
+   MODALS
+================================= */
+
+.modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 500;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        rgba(55,49,41,.45);
+
+    backdrop-filter:
+        blur(8px);
+}
+
+
+.modal.active {
+
+    display: flex;
+
+    animation:
+        fadeIn .2s ease;
+}
+
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+.modal-card {
+
+    width:
+        min(620px, 100%);
+
+    max-height:
+        90vh;
+
+    overflow-y: auto;
+
+    position: relative;
+
+    background: var(--paper);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 26px;
+
+    padding: 40px;
+
+    text-align: center;
+
+    box-shadow: var(--shadow-large);
+
+    animation:
+        slideUp .25s ease;
+}
+
+
+@keyframes slideUp {
+
+    from {
+        transform: translateY(20px);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+
+.close-button {
+
+    position: absolute;
+
+    top: 18px;
+    right: 20px;
+
+    width: 34px;
+    height: 34px;
+
+    border: none;
+
+    background: var(--cream);
+
+    color: var(--muted);
+
+    border-radius: 50%;
+
+    font-size: 23px;
+
+    cursor: pointer;
+}
+
+
+.modal-icon {
+
+    width: 65px;
+    height: 65px;
+
+    margin:
+        0 auto 20px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: var(--green-light);
+
+    border-radius: 20px;
+
+    font-size: 31px;
+}
+
+
+.modal-card h2 {
+
+    font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
+    color: var(--brown);
+
+    font-size: 32px;
+
+    margin-bottom: 10px;
+}
+
+
+.modal-description {
+
+    color: var(--muted);
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    margin-bottom: 25px;
+}
+
+
+/* =================================
+   LEVEL OPTIONS
+================================= */
+
+.level-options {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    text-align: left;
+}
+
+
+.level-option {
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 15px;
+
+    background: var(--paper);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 17px;
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    text-align: left;
+
+    transition: .2s;
+}
+
+
+.level-option:hover {
+
+    border-color: var(--green);
+
+    transform:
+        translateY(-2px);
+
+    box-shadow: var(--shadow);
+}
+
+
+.option-icon {
+
+    width: 50px;
+    height: 50px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: var(--cream);
+
+    border-radius: 14px;
+
+    font-size: 24px;
+}
+
+
+.option-text {
+
+    flex: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+
+.option-text strong {
+
+    color: var(--brown);
+
+    font-size: 15px;
+}
+
+
+.option-text small {
+
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+
+.option-arrow {
+
+    color: var(--green-dark);
+
+    font-size: 22px;
+}
+
 
 .back-button {
-    margin-top: 25px;
 
     border: none;
 
@@ -1259,41 +1272,323 @@ body.dark footer {
 
     color: var(--muted);
 
+    margin-top: 20px;
+
     font-family: inherit;
-
-    font-size: 14px;
-
-    font-weight: 600;
 
     cursor: pointer;
 }
 
-.back-button:hover {
-    color: var(--green-dark);
+
+/* =================================
+   ACCOUNT FORMS
+================================= */
+
+.account-card {
+
+    width:
+        min(470px, 100%);
 }
 
 
-/* MOBILE */
+.account-card form {
 
-@media (max-width: 600px) {
+    display: flex;
 
-    .start-card {
-        padding: 30px 20px;
+    flex-direction: column;
 
-        border-radius: 22px;
+    text-align: left;
+
+    gap: 8px;
+}
+
+
+.account-card label {
+
+    color: var(--brown);
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    margin-top: 7px;
+}
+
+
+.account-card input {
+
+    width: 100%;
+
+    padding: 13px 14px;
+
+    border:
+        1px solid var(--border);
+
+    background: var(--cream-light);
+
+    color: var(--text);
+
+    border-radius: 11px;
+
+    outline: none;
+
+    font-family: inherit;
+
+    font-size: 14px;
+}
+
+
+.account-card input:focus {
+
+    border-color: var(--green);
+
+    box-shadow:
+        0 0 0 3px var(--green-light);
+}
+
+
+.full-button {
+
+    width: 100%;
+
+    margin-top: 12px;
+}
+
+
+.switch-account {
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+    margin-top: 20px;
+}
+
+
+.switch-account button {
+
+    border: none;
+
+    background: transparent;
+
+    color: var(--green-dark);
+
+    font-family: inherit;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+/* =================================
+   DARK MODE
+================================= */
+
+body.dark {
+
+    --cream: #1e231f;
+    --paper: #292f2b;
+    --paper-2: #252a27;
+
+    --brown: #f2ede4;
+    --text: #eee9df;
+    --muted: #b4afa6;
+
+    --border: #3c433e;
+
+    --green-light: #304535;
+
+    --red-light: #493333;
+
+    background: #1e231f;
+}
+
+
+body.dark .navbar {
+
+    background:
+        rgba(41,47,43,.95);
+}
+
+
+body.dark .logo,
+body.dark .hero h1,
+body.dark .section-heading h2,
+body.dark .practice-section h2,
+body.dark .modal-card h2,
+body.dark .lesson-content strong,
+body.dark .stat-card strong {
+
+    color: #f2ede4;
+}
+
+
+body.dark .hero-art .art-circle {
+
+    background: #304535;
+}
+
+
+body.dark .lesson.current {
+
+    background: #29372e;
+}
+
+
+body.dark .theme-button {
+
+    background: var(--paper);
+
+    border-color: var(--border);
+}
+
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 800px) {
+
+    .navigation {
+        display: none;
     }
 
-    .start-card h2 {
+
+    .navbar {
+
+        padding:
+            0 18px;
+    }
+
+
+    .login-button {
+        display: none;
+    }
+
+
+    .hero {
+
+        padding:
+            65px 25px;
+
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+
+    .hero-content {
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+    }
+
+
+    .hero-art {
+
+        width: 210px;
+        height: 210px;
+    }
+
+
+    .stats-section {
+
+        padding:
+            0 20px;
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .daily-section {
+
+        margin:
+            0 20px 60px;
+
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+
+    .goal-progress {
+
+        width: 100%;
+    }
+
+
+    .learning-section,
+    .practice-section {
+
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+
+    .practice-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .section-heading h2,
+    .practice-section h2 {
+
+        font-size: 31px;
+    }
+
+
+    .modal-card {
+
+        padding:
+            32px 20px;
+    }
+
+
+    .modal-card h2 {
+
         font-size: 28px;
     }
 
-    .level-option {
-        padding: 14px;
+}
+
+
+@media (max-width: 450px) {
+
+    .logo {
+
+        font-size: 21px;
     }
 
-    .option-icon {
-        width: 46px;
-        height: 46px;
+
+    .signup-button {
+
+        padding:
+            9px 12px;
+    }
+
+
+    .hero h1 {
+
+        font-size: 42px;
+    }
+
+
+    .lesson {
+
+        padding:
+            15px;
+    }
+
+
+    .lesson-number {
+
+        width: 50px;
+        height: 50px;
     }
 
 }
