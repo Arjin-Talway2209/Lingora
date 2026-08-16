@@ -637,7 +637,173 @@
     <!-- =========================
          LOGIN
     ========================== -->
+<!-- =========================
+     PLACEMENT TEST
+========================= -->
 
+<div class="modal" id="placementModal">
+
+    <div class="modal-card test-card">
+
+        <button
+            class="close-button"
+            onclick="closePlacementTest()">
+            ×
+        </button>
+
+
+        <!-- TEST HEADER -->
+
+        <div class="test-header">
+
+            <div>
+
+                <p class="section-label">
+                    LINGORA PLACEMENT TEST
+                </p>
+
+                <h2 id="questionNumber">
+                    Question 1 of 20
+                </h2>
+
+            </div>
+
+            <span id="questionLevel" class="test-level">
+                A1
+            </span>
+
+        </div>
+
+
+        <!-- PROGRESS -->
+
+        <div class="test-progress">
+
+            <div
+                id="testProgress"
+                class="test-progress-fill">
+            </div>
+
+        </div>
+
+
+        <!-- QUESTION -->
+
+        <div class="question-area">
+
+            <p
+                id="questionText"
+                class="question-text">
+            </p>
+
+
+            <div
+                id="answerOptions"
+                class="answer-options">
+            </div>
+
+        </div>
+
+
+        <!-- BUTTONS -->
+
+        <div class="test-buttons">
+
+            <button
+                id="previousButton"
+                class="test-back"
+                onclick="previousQuestion()">
+
+                ← Back
+
+            </button>
+
+
+            <button
+                id="nextButton"
+                class="primary-button"
+                onclick="nextQuestion()">
+
+                Next →
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     TEST RESULT
+========================= -->
+
+<div class="modal" id="resultModal">
+
+    <div class="modal-card result-card">
+
+        <div class="result-icon">
+            🎉
+        </div>
+
+
+        <p class="section-label">
+            YOUR LINGORA LEVEL
+        </p>
+
+
+        <h2>
+            You're ready to learn!
+        </h2>
+
+
+        <div
+            id="resultLevel"
+            class="result-level">
+            A1
+        </div>
+
+
+        <p
+            id="resultDescription"
+            class="modal-description">
+        </p>
+
+
+        <div class="result-score">
+
+            <span>
+                Your score
+            </span>
+
+            <strong id="resultScore">
+                0 / 20
+            </strong>
+
+        </div>
+
+
+        <button
+            class="primary-button full-button"
+            onclick="startRecommendedLevel()">
+
+            Start Learning →
+
+        </button>
+
+
+        <button
+            class="back-button"
+            onclick="restartPlacementTest()">
+
+            Take the test again
+
+        </button>
+
+    </div>
+
+</div>
     <div
         class="modal"
         id="loginModal">
